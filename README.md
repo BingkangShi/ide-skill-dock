@@ -124,4 +124,4 @@ Core data and fine-tuning logic are hosted and configured via plain-text JSON. T
 ## Source Code & Contact Us
 
 If you encounter issues during use or wish to contribute to the project's development, you can submit an Issue or a Pull Request to the developer via the project repository link below:
-[🔗 Project GitHub Repository](https://github.com/your-username/ide-skill-dock)
+[🔗 Project GitHub Repository](https://github.com/BingkangShi/ide-skill-dock)

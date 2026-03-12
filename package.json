@@ -32,7 +32,7 @@
       "ide-skill-dock-panel": [
         {
           "type": "webview",
-          "id": "ide-ide-skill-dock.view",
+          "id": "ide-skill-dock.view",
           "name": "IDE Skill Dock",
           "icon": "media/icon.svg",
           "contextualTitle": "IDE Skill Dock"
