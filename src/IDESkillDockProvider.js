@@ -3,7 +3,7 @@ const vscode = require('vscode');
 const fs = require('fs');
 const path = require('path');
 
-class SkillDockProvider {
+class IDESkillDockProvider {
     constructor(extensionUri) {
         this._extensionUri = extensionUri;
         this._registryPath = path.join(extensionUri.fsPath, 'skills_registry.json');
@@ -407,7 +407,7 @@ class SkillDockProvider {
             + '<head>'
             + '<meta charset="UTF-8">'
             + '<meta name="viewport" content="width=device-width,initial-scale=1.0">'
-            + '<title>AI Skill Dock</title>'
+            + '<title>IDE Skill Dock</title>'
             + '<style>'
             + 'body{margin:0;padding:0;font-family:var(--vscode-font-family),Arial,sans-serif;' + bgStyle + 'height:100vh;overflow:hidden;display:flex;align-items:center;}'
             + '.container{display:flex;flex-direction:row;align-items:center;width:100%;padding:0 10px;box-sizing:border-box;overflow-x:auto;overflow-y:hidden;}'
@@ -485,4 +485,4 @@ class SkillDockProvider {
     }
 }
 
-module.exports = { SkillDockProvider };
+module.exports = { IDESkillDockProvider };

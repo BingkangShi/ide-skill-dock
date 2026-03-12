@@ -1,15 +1,15 @@
 > 🌐 **中文 (Simplified Chinese)** | [English](./README.md)
 > 
-# AI Skill Dock
+# IDE Skill Dock
 
 ## 插件简介
 
-**AI Skill Dock** 是一款专为带有 AI 功能的 IDE（如 VS Code, Cursor, Antigravity 等）开发的管理工具。该扩展支持以可视化的形式把 `SKILL.md` (Agent 提示词) 和本地的脚本程序集中管理。点击或拖拽界面上的图标，即可快速将包含绝对路径或定制指令的快捷方式输入到 AI 对话框中进行调用。
+**IDE Skill Dock** 是一款专为带有 AI 功能的 IDE（如 VS Code, Cursor, Antigravity 等）开发的管理工具。该扩展支持以可视化的形式把 `SKILL.md` (Agent 提示词) 和本地的脚本程序集中管理。点击或拖拽界面上的图标，即可快速将包含绝对路径或定制指令的快捷方式输入到 AI 对话框中进行调用。
 
 ## 如何使用
 
 ### 1. 如何安装
-打开 VS Code （或受支持的衍生版本）中的 **Extensions (扩展)** 市场，搜索 **"AI Skill Dock"** 下载并安装。安装完毕并重启/重载窗口后，活动栏或状态栏将出现相应的入口图标，点击即可打开面板。
+打开 VS Code （或受支持的衍生版本）中的 **Extensions (扩展)** 市场，搜索 **"IDE Skill Dock"** 下载并安装。安装完毕并重启/重载窗口后，活动栏或状态栏将出现相应的入口图标，点击即可打开面板。
 
 ### 2. 如何在 skill 界面中添加 skill 或脚本程序
 
@@ -95,7 +95,7 @@
 
 **默认的 svg 文件夹在系统里的绝对路径：**
 因为 VS Code 大多将离线扩展储存在特定隐藏目录下，该 SVG 自动生成的首选落地目标位置为：
-`C:\Users\【你的系统用户名】\.vscode\extensions\local.ai-skill-dock-0.0.1\media\default\`
+`C:\Users\【你的系统用户名】\.vscode\extensions\local.ide-skill-dock-0.0.1\media\default\`
 *(如果是 Cursor 等，则可能相应挂载在 `.cursor\extensions\...` 目录下)*
 
 如果你想自己定制皮肤，只需自行制作一张 `.icon.svg` 图片，将其严格命名为 `<名称>.icon.svg` 测试后放进上述绝对路径目录覆盖原图即可生效。
@@ -105,7 +105,7 @@
 ## 配置文件介绍与管理
 
 核心数据和微调逻辑均通过纯文本形态的 JSON 进行托管配置，它们的系统底层绝对存在路径同样位于：
-`C:\Users\【你的系统用户名】\.vscode\extensions\local.ai-skill-dock-0.0.1\`
+`C:\Users\【你的系统用户名】\.vscode\extensions\local.ide-skill-dock-0.0.1\`
 
 - **`skills_registry.json`**：
   插件的核心数据库。存储了各种功能图标所对应的本机绝对路径、你自定义的外观、工作目录配置，以及针对每个脚本重置过后的特定 `command` 记录大全。需要完全个性化的专属调用意图，请在这个底层里对选定程序的 `command` 字段进行修改。
@@ -124,4 +124,4 @@
 ## 源码 & 联系我们
 
 如果您在使用过程中遇到问题或者希望对项目开发做出贡献，可以通过访问下方的项目库地址向开发者提交 Issue 或 Pull Request：
-[🔗 项目 GitHub 仓库地址](https://github.com/your-username/ai-skill-dock)
+[🔗 项目 GitHub 仓库地址](https://github.com/your-username/ide-skill-dock)

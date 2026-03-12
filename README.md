@@ -1,15 +1,15 @@
 > 🌐 [中文 (Simplified Chinese)](./README_zh-CN.md) | **English**
 > 
-# AI Skill Dock
+# IDE Skill Dock
 
 ## Introduction
 
-**AI Skill Dock** is a management tool designed for AI-empowered IDEs (such as VS Code, Cursor, Antigravity, etc.). This extension provides a visual way to centrally manage your `SKILL.md` (Agent Prompt Playbooks) and local scripts. By simply clicking or dragging the icons on the interface, you can quickly insert shortcuts containing absolute paths or custom commands into AI chat boxes for immediate invocation.
+**IDE Skill Dock** is a management tool designed for AI-empowered IDEs (such as VS Code, Cursor, Antigravity, etc.). This extension provides a visual way to centrally manage your `SKILL.md` (Agent Prompt Playbooks) and local scripts. By simply clicking or dragging the icons on the interface, you can quickly insert shortcuts containing absolute paths or custom commands into AI chat boxes for immediate invocation.
 
 ## How to Use
 
 ### 1. Installation
-Open the **Extensions** marketplace in VS Code (or a supported derived version) and search for **"AI Skill Dock"** to download and install. After installation and restarting/reloading the window, a corresponding entry icon will appear in the Activity Bar or Status Bar. Click it to open the panel.
+Open the **Extensions** marketplace in VS Code (or a supported derived version) and search for **"IDE Skill Dock"** to download and install. After installation and restarting/reloading the window, a corresponding entry icon will appear in the Activity Bar or Status Bar. Click it to open the panel.
 
 ### 2. Adding Skills or Scripts to the Interface
 
@@ -95,7 +95,7 @@ When you sync or add a brand-new skill or script and no default image is provide
 
 **Absolute path of the default svg folder on your system:**
 Since VS Code mostly stores offline extensions in completely hidden specific directories, the preferred landing location for these auto-generated SVGs is:
-`C:\Users\[Your System Username]\.vscode\extensions\local.ai-skill-dock-0.0.1\media\default\`
+`C:\Users\[Your System Username]\.vscode\extensions\local.ide-skill-dock-0.0.1\media\default\`
 *(If using Cursor, etc., it may be mounted in the `.cursor\extensions\...` directory instead)*
 
 If you want to customize the skin yourself, simply create an `.icon.svg` image, name it strictly `<Name>.icon.svg`, test it, and place it in the absolute path directory mentioned above to overwrite the original image.
@@ -105,7 +105,7 @@ If you want to customize the skin yourself, simply create an `.icon.svg` image, 
 ## Configuration File Introduction and Management
 
 Core data and fine-tuning logic are hosted and configured via plain-text JSON. Their underlying absolute paths on the system are also located at:
-`C:\Users\[Your System Username]\.vscode\extensions\local.ai-skill-dock-0.0.1\`
+`C:\Users\[Your System Username]\.vscode\extensions\local.ide-skill-dock-0.0.1\`
 
 - **`skills_registry.json`**:
   The core database of the extension. It stores the local absolute paths corresponding to various functional icons, your custom appearance and working directory configurations, and a comprehensive record of the specifically reset `command` for each script. For completely personalized invocation intents, modify the `command` field of the selected program in this underlying file.
@@ -124,4 +124,4 @@ Core data and fine-tuning logic are hosted and configured via plain-text JSON. T
 ## Source Code & Contact Us
 
 If you encounter issues during use or wish to contribute to the project's development, you can submit an Issue or a Pull Request to the developer via the project repository link below:
-[🔗 Project GitHub Repository](https://github.com/your-username/ai-skill-dock)
+[🔗 Project GitHub Repository](https://github.com/your-username/ide-skill-dock)

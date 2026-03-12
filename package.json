@@ -1,12 +1,12 @@
 {
-  "name": "ai-skill-dock",
-  "displayName": "AI Skill Dock",
+  "name": "ide-skill-dock",
+  "displayName": "IDE Skill Dock",
   "publisher": "local",
   "description": "Drag and drop predefined skills and scripts into your AI prompt.",
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/ai-skill-dock"
+    "url": "https://github.com/your-username/ide-skill-dock"
   },
   "engines": {
     "vscode": "^1.80.0"
@@ -22,76 +22,76 @@
     "viewsContainers": {
       "panel": [
         {
-          "id": "skill-dock-panel",
+          "id": "ide-skill-dock-panel",
           "title": "Skill Dock",
           "icon": "media/icon.svg"
         }
       ]
     },
     "views": {
-      "skill-dock-panel": [
+      "ide-skill-dock-panel": [
         {
           "type": "webview",
-          "id": "skill-dock.view",
-          "name": "AI Skill Dock",
+          "id": "ide-ide-skill-dock.view",
+          "name": "IDE Skill Dock",
           "icon": "media/icon.svg",
-          "contextualTitle": "AI Skill Dock"
+          "contextualTitle": "IDE Skill Dock"
         }
       ]
     },
     "commands": [
       {
-        "command": "skill-dock.sync",
+        "command": "ide-skill-dock.sync",
         "title": "Sync",
         "icon": "$(sync)"
       },
       {
-        "command": "skill-dock.settings.initWorkspace",
+        "command": "ide-skill-dock.settings.initWorkspace",
         "title": "Initialize Workspace"
       },
       {
-        "command": "skill-dock.settings.editJson",
+        "command": "ide-skill-dock.settings.editJson",
         "title": "Edit skill and json lists"
       },
       {
-        "command": "skill-dock.settings.appearance",
+        "command": "ide-skill-dock.settings.appearance",
         "title": "Appearance"
       },
       {
-        "command": "skill-dock.addFile",
+        "command": "ide-skill-dock.addFile",
         "title": "Add File",
         "icon": "$(add)"
       },
       {
-        "command": "skill-dock.openPanel",
+        "command": "ide-skill-dock.openPanel",
         "title": "Open Skill Dock Panel"
       }
     ],
     "menus": {
       "view/title": [
         {
-          "command": "skill-dock.sync",
-          "when": "view == skill-dock.view",
+          "command": "ide-skill-dock.sync",
+          "when": "view == ide-skill-dock.view",
           "group": "navigation@1"
         },
         {
-          "command": "skill-dock.settings.initWorkspace",
-          "when": "view == skill-dock.view",
+          "command": "ide-skill-dock.settings.initWorkspace",
+          "when": "view == ide-skill-dock.view",
           "group": "settings@1"
         },
         {
-          "command": "skill-dock.settings.editJson",
-          "when": "view == skill-dock.view",
+          "command": "ide-skill-dock.settings.editJson",
+          "when": "view == ide-skill-dock.view",
           "group": "settings@2"
         },
         {
-          "command": "skill-dock.settings.appearance",
-          "when": "view == skill-dock.view",
+          "command": "ide-skill-dock.settings.appearance",
+          "when": "view == ide-skill-dock.view",
           "group": "settings@3"
         },
         {
-          "command": "skill-dock.addFile",
-          "when": "view == skill-dock.view",
+          "command": "ide-skill-dock.addFile",
+          "when": "view == ide-skill-dock.view",
           "group": "navigation@2"
         }
       ]
