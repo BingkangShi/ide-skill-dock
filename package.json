@@ -1,7 +1,7 @@
 {
   "name": "ide-skill-dock",
   "displayName": "IDE Skill Dock",
-  "publisher": "local",
+  "publisher": "BingkangShi",
   "description": "Drag and drop predefined skills and scripts into your AI prompt.",
   "version": "0.0.1",
   "repository": {
