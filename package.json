@@ -6,7 +6,7 @@
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/ide-skill-dock"
+    "url": "https://github.com/BingkangShi/ide-skill-dock"
   },
   "engines": {
     "vscode": "^1.80.0"
