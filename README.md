@@ -3,6 +3,7 @@
 # 🚀 IDE Skill Dock
 
 ![IDE Skill Dock Visualization](./skill_example.png)
+<p align="center"><i>Visual representation of the IDE Skill Dock interface</i></p>
 
 ## 📝 Introduction
 

@@ -3,6 +3,7 @@
 # 🚀 IDE Skill Dock
 
 ![IDE Skill Dock 可视化效果](./skill_example.png)
+<p align="center"><i>IDE Skill Dock 界面可视化展示</i></p>
 
 ## 📝 插件简介
 
