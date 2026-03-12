@@ -1,0 +1,5 @@
+{
+  "skill_command": "Please complete the task using the guidelines in {path}.",
+  "script_command_with_doc": "Execute the script at {path} according to its documentation and usage at {doc_path}.",
+  "script_command_without_doc": "Execute the script at {path}."
+}

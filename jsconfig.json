@@ -1,0 +1,17 @@
+﻿{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "ES2022",
+        "checkJs": false,
+        "allowJs": true,
+        "lib": [
+            "ES2022",
+            "DOM"
+        ],
+        "rootDir": "src"
+    },
+    "exclude": [
+        "node_modules",
+        ".vscode-test"
+    ]
+}

@@ -1,0 +1,17 @@
+{
+  "workspace": "C:\\path\\to\\your\\workspace",
+  "icon_path": "default",
+  "skill": {
+    "sample_skill": {
+      "path": "C:\\path\\to\\your\\SKILL.md",
+      "command": "Please complete the task using the guidelines in C:\\path\\to\\your\\SKILL.md."
+    },
+    "sample_script": {
+      "path": "C:\\path\\to\\your\\script.py",
+      "command": "Execute the script at C:\\path\\to\\your\\script.py according to its documentation and usage at C:\\path\\to\\your\\script.md."
+    }
+  },
+  "appearance": {
+    "background": "dark"
+  }
+}

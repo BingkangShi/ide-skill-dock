@@ -1,0 +1,13 @@
+.vscode/**
+.vscode-test/**
+out/**
+node_modules/**
+src/**/*.map
+src/**/*.ts
+.gitignore
+.yarnrc
+**/*.vsix
+**/.DS_Store
+**/*.py
+.agent/**
+.claude/**
