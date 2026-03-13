@@ -14,11 +14,11 @@
 ### 1. 📥 Installation
 Open the **Extensions** marketplace in VS Code (or a supported derived version) and search for **"IDE Skill Dock"** to download and install. After installation and restarting/reloading the window, a corresponding entry icon will appear in the Activity Bar or Status Bar. Click it to open the panel.
 
-> 💡 **Can't find the panel?**
-> Click the **⚡ IDE Skill Dock** icon at the bottom-left of your IDE to open or focus the dock.
-> ![How to open](click.png)
+### 2. ⚡ Opening the Panel
+Click the **⚡ IDE Skill Dock** icon at the bottom-left of your IDE to open or focus the dock.
+![How to open](click.png)
 
-### 2. ➕ Adding Skills or Scripts to the Interface
+### 3. ➕ Adding Skills or Scripts to the Interface
 
 The extension provides three ways to add skills and scripts:
 
@@ -47,7 +47,7 @@ The extension provides three ways to add skills and scripts:
 ```
 After saving the file, return to the extension panel and click "Sync" at the top to refresh. The newly added skill or script will then appear.
 
-### 3. 🗑️ Removing Skills or Scripts from the Interface
+### 4. 🗑️ Removing Skills or Scripts from the Interface
 
 **(1) 🖱️ Right-Click Method:**
 - In the visual panel, hover your mouse over the skill or script icon you want to remove.
@@ -57,7 +57,7 @@ After saving the file, return to the extension panel and click "Sync" at the top
 - Manually open the configuration file and find the dictionary node corresponding to the skill or script you want to remove under `"skill"`.
 - **Delete this key-value block and save** the file. The UI will cull the item the next time it re-renders or when you click "Sync".
 
-### 4. 🎛️ Customizing Commands for Each Skill or Script
+### 5. 🎛️ Customizing Commands for Each Skill or Script
 
 The "command" refers to the plain text sentence that is sent to the AI (via the clipboard) when you click or drag a specific icon.
 
@@ -66,7 +66,7 @@ The "command" refers to the plain text sentence that is sent to the AI (via the 
 - Locate the dictionary for the corresponding skill or script and modify its `"command"` value.
 - Change it to the specific prompt intention you want the AI to receive and save. For example: `Review my current code based on the guidance in this document: C:\\path\\to\\SKILL.md`.
 
-### 5. 🤖 Using it in the IDE's AI Chat Box
+### 6. 🤖 Using it in the IDE's AI Chat Box
 
 **(1) 💻 VS Code:**
 - Click the icon of the skill or script on the panel.
@@ -81,7 +81,7 @@ The "command" refers to the plain text sentence that is sent to the AI (via the 
 **(3) 🌐 Others:**
 - Not yet tested. You may try installing it first. Compatibility and testing for more derived editors will be addressed in future major updates.
 
-### 6. 🎨 Customizing the Interface Appearance
+### 7. 🎨 Customizing the Interface Appearance
 
 **(1) ⚙️ Via the settings button on the interface:**
 - Click **Settings** -> **Appearance** on the top bar of the panel.
