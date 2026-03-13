@@ -4,10 +4,39 @@ const fs = require('fs');
 const path = require('path');
 
 class IDESkillDockProvider {
-    constructor(extensionUri) {
-        this._extensionUri = extensionUri;
-        this._registryPath = path.join(extensionUri.fsPath, 'skills_registry.json');
+    constructor(context) {
+        this._context = context;
+        this._extensionUri = context.extensionUri;
+        
+        // Use globalStorageUri for persistence across updates
+        if (!fs.existsSync(context.globalStorageUri.fsPath)) {
+            fs.mkdirSync(context.globalStorageUri.fsPath, { recursive: true });
+        }
+        
+        this._registryPath = path.join(context.globalStorageUri.fsPath, 'skills_registry.json');
+        this._migrateOldData(context.extensionUri.fsPath, context.globalStorageUri.fsPath);
         this._initRegistry();
+    }
+
+    _migrateOldData(oldRoot, newRoot) {
+        const oldRegistry = path.join(oldRoot, 'skills_registry.json');
+        if (fs.existsSync(oldRegistry) && !fs.existsSync(this._registryPath)) {
+            try {
+                // Migrate registry
+                fs.copyFileSync(oldRegistry, this._registryPath);
+                
+                // Migrate icons
+                const files = fs.readdirSync(oldRoot);
+                for (const file of files) {
+                    if (file.endsWith('.icon.svg')) {
+                        fs.copyFileSync(path.join(oldRoot, file), path.join(newRoot, file));
+                    }
+                }
+                console.log('Migration to global storage successful');
+            } catch (e) {
+                console.error('Migration failed', e);
+            }
+        }
     }
 
     _initRegistry() {
@@ -30,6 +59,7 @@ class IDESkillDockProvider {
                 delete data.py_script;
                 delete data.script;
                 delete data.layout;
+                if (!data.skill) data.skill = {};
                 // Force dark as default
                 if (!data.appearance) data.appearance = { background: 'dark' };
                 if (data.appearance.background === 'bright') data.appearance.background = 'dark';
@@ -90,7 +120,10 @@ class IDESkillDockProvider {
         this._view = webviewView;
         webviewView.webview.options = {
             enableScripts: true,
-            localResourceRoots: [this._extensionUri]
+            localResourceRoots: [
+                this._extensionUri,
+                this._context.globalStorageUri
+            ]
         };
         webviewView.onDidChangeVisibility(() => {
             if (webviewView.visible) this._updateWebview();
@@ -131,7 +164,7 @@ class IDESkillDockProvider {
                         if (reg.skill && reg.skill[data.name]) {
                             delete reg.skill[data.name];
                             this._writeRegistry(reg);
-                            const iconFile = path.join(path.dirname(this._registryPath), data.name + '.icon.svg');
+                            const iconFile = path.join(this._context.globalStorageUri.fsPath, data.name + '.icon.svg');
                             if (fs.existsSync(iconFile)) try { fs.unlinkSync(iconFile); } catch (e) { }
                             vscode.window.showInformationMessage('Removed: ' + data.name);
                             this._updateWebview();
@@ -234,7 +267,7 @@ class IDESkillDockProvider {
     }
 
     async _ensureIconsGenerated(skillNames) {
-        const rootDir = path.dirname(this._registryPath);
+        const rootDir = this._context.globalStorageUri.fsPath;
         const keywordEmojiMap = {
             'paper': '\ud83d\udcc4', 'card': '\ud83d\udcc7', 'art': '\ud83c\udfa8', 'doc': '\ud83d\udcdd', 'code': '\ud83d\udcbb',
             'data': '\ud83d\udcca', 'web': '\ud83c\udf10', 'python': '\ud83d\udc0d', 'zip': '\ud83d\udce6', 'image': '\ud83d\uddbc\ufe0f',
@@ -382,7 +415,7 @@ class IDESkillDockProvider {
 
         // Build skill items HTML
         let skillsHtml = '';
-        const rootDir = path.dirname(this._registryPath);
+        const rootDir = this._context.globalStorageUri.fsPath;
         for (const [name, p] of Object.entries(skills)) {
             const iconPath = path.join(rootDir, name + '.icon.svg');
             let iconContent;

@@ -1,8 +1,17 @@
 > 🌐 **中文 (Simplified Chinese)** | [English](./README.md)
 > 
-# 🚀 IDE Skill Dock
+### 🚀 快速开始
+1. **初始化工作区**: 点击 IDE Skill Dock 面板中的 **设置** 图标（齿轮），选择您的项目根目录。
+2. **同步技能**: 点击 **同步**（刷新图标）以自动查找所有 `SKILL.md` 文件。
+3. **使用**: 将技能图标拖入 AI 聊天框，或点击图标直接复制 Prompt。
 
-![IDE Skill Dock 可视化效果](./skill_example.png)
+> [!TIP]
+> **找不到面板？**
+> 点击 IDE 左下角的 **⚡ IDE Skill Dock** 图标即可呼出或聚焦面板。
+> ![如何打开](click.png)
+
+### 📸 预览
+![技能示例](skill_example.png)
 <p align="center"><i>IDE Skill Dock 界面可视化展示</i></p>
 
 ## 📝 插件简介

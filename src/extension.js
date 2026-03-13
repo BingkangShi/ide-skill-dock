@@ -3,7 +3,7 @@ const vscode = require('vscode');
 const { IDESkillDockProvider } = require('./IDESkillDockProvider');
 
 function activate(context) {
-    const provider = new IDESkillDockProvider(context.extensionUri);
+    const provider = new IDESkillDockProvider(context);
 
     // Register the main webview view in the bottom panel
     context.subscriptions.push(
