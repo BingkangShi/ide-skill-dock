@@ -16,6 +16,7 @@ Open the **Extensions** marketplace in VS Code (or a supported derived version) 
 
 ### 2. ⚡ Opening the Panel
 Click the **⚡ IDE Skill Dock** icon at the bottom-left of your IDE to open or focus the dock.
+
 ![How to open](click.png)
 
 ### 3. ➕ Adding Skills or Scripts to the Interface
