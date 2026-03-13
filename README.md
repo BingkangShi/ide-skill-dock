@@ -14,6 +14,10 @@
 ### 1. 📥 Installation
 Open the **Extensions** marketplace in VS Code (or a supported derived version) and search for **"IDE Skill Dock"** to download and install. After installation and restarting/reloading the window, a corresponding entry icon will appear in the Activity Bar or Status Bar. Click it to open the panel.
 
+> 💡 **Can't find the panel?**
+> Click the **⚡ IDE Skill Dock** icon at the bottom-left of your IDE to open or focus the dock.
+> ![How to open](click.png)
+
 ### 2. ➕ Adding Skills or Scripts to the Interface
 
 The extension provides three ways to add skills and scripts:
