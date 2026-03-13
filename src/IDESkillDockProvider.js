@@ -248,7 +248,7 @@ class IDESkillDockProvider {
         registry.skill = newSkillsDict;
         this._writeRegistry(registry);
         vscode.window.showInformationMessage('\u540c\u6b65\u5b8c\u6210\uff0c\u5171\u52a0\u8f7d ' + Object.keys(newSkillsDict).length + ' skills.');
-        this._ensureIconsGenerated(Object.keys(newSkillsDict));
+        await this._ensureIconsGenerated(Object.keys(newSkillsDict));
         this._updateWebview();
     }
 
@@ -415,22 +415,21 @@ class IDESkillDockProvider {
 
         // Build skill items HTML
         let skillsHtml = '';
-        const rootDir = this._context.globalStorageUri.fsPath;
+        const globalStorageUri = this._context.globalStorageUri;
         for (const [name, p] of Object.entries(skills)) {
-            const iconPath = path.join(rootDir, name + '.icon.svg');
-            let iconContent;
-            if (fs.existsSync(iconPath)) {
-                const iconUri = webview.asWebviewUri(vscode.Uri.file(iconPath));
-                iconContent = '<img src="' + iconUri + '" alt="' + name + '" style="width:40px;height:40px;border-radius:8px;object-fit:cover;"/>';
-            } else {
-                iconContent = '<div class="icon skill-icon">\u26a1</div>';
-            }
+            const iconUri = webview.asWebviewUri(vscode.Uri.joinPath(globalStorageUri, name + '.icon.svg'));
+            
             let commandData = p;
             if (typeof p === 'object' && p !== null) commandData = p.command || '';
             const safeCommand = String(commandData).replace(/"/g, '&quot;');
             const safeName = String(name).replace(/"/g, '&quot;');
+            
+            // Note: We'll use the asWebviewUri for the image. 
+            // If the script doesn't find the file on disk, it shows alt text.
             skillsHtml += '<div class="item" draggable="true" data-path="' + safeCommand + '" data-name="' + safeName + '">'
-                + '<div class="icon" style="background:transparent;box-shadow:none;">' + iconContent + '</div>'
+                + '<div class="icon" style="background:transparent;box-shadow:none;">' 
+                + '<img src="' + iconUri + '" alt="\u26a1" style="width:40px;height:40px;border-radius:8px;object-fit:cover;" onerror="this.onerror=null; this.parentElement.innerHTML=\'<div class=\\\'icon skill-icon\\\' style=\\\'width:40px;height:40px;display:flex;align-items:center;justify-content:center;\\\'>\u26a1</div>\';"/>'
+                + '</div>'
                 + '<div class="name">' + name + '</div>'
                 + '</div>';
         }
@@ -440,6 +439,7 @@ class IDESkillDockProvider {
             + '<head>'
             + '<meta charset="UTF-8">'
             + '<meta name="viewport" content="width=device-width,initial-scale=1.0">'
+            + '<meta http-equiv="Content-Security-Policy" content="default-src \'none\'; img-src ' + webview.cspSource + ' https: data:; style-src \'unsafe-inline\' ' + webview.cspSource + '; script-src \'unsafe-inline\' ' + webview.cspSource + ';">'
             + '<title>IDE Skill Dock</title>'
             + '<style>'
             + 'body{margin:0;padding:0;font-family:var(--vscode-font-family),Arial,sans-serif;' + bgStyle + 'height:100vh;overflow:hidden;display:flex;align-items:center;}'
